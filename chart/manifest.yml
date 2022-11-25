@@ -1,0 +1,23 @@
+app:
+  name: chart
+  key: chart_app_demo
+  version: "1.0.0"
+modules:
+  chart:
+    - key: chart_bar_demo
+      resource: chart_bar_demo
+      name: Bar Chart
+      description: Bar Chart
+      loadType: RemoteJs
+      tabOrder: 1
+      enableSave: true
+      grid:
+        w: 4
+        h: 3
+        minW: 1
+        maxW: 12
+        minH: 1
+      icon: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABIBAMAAACnw650AAAAIVBMVEU2s36R0beZ2L2a2b7IylvMzl7Nzl/t7vH+/v7/xAD///8wIcIxAAAAAWJLR0QKaND0VgAAAKZJREFUSMflkbENwjAUBa9LRMUIjMAIjMAIrEBl0VI5PSC9mgqmpEBI3/K3kiLCJrzydJK/dTwnjGVId1g1IEW7M/QxH8HuCF3I1+TvfGkLNaQ3mFHy223AgEK7NRjw7cMd9m+Sk6rQLk1VaDf34dKtqvQBTUomlXSFPsZB2ifAtpMu0IVwknYJ8J57SIfRm35Fylh1yUnltctSee3a+92ypYntxvcCPnblOUiWlYcAAAAASUVORK5CYII=
+resources:
+  - key: chart_bar_demo
+    path: ./dist/chart-bar-demo
