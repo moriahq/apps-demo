@@ -9,7 +9,7 @@ modules:
       name: Bar Chart
       description: Bar Chart
       loadType: RemoteJs
-      tabOrder: 1
+      tabOrder: 99
       enableSave: true
       grid:
         w: 4
