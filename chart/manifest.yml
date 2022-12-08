@@ -1,6 +1,6 @@
 app:
-  name: chart
-  key: chart_app_demo
+  name: chart-demo
+  key: chart_demo
   version: "1.0.0"
 modules:
   chart:
