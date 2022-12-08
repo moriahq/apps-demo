@@ -1,0 +1,11 @@
+app:
+  name: webtrigger-demo
+  key: webtrigger_demo
+  version: "0.0.1"
+modules:
+  webtrigger:
+    - key: webtrigger-key-1
+      function: webtrigger-function
+  function:
+    - key: webtrigger-function
+      handler: index.run

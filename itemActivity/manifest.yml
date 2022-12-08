@@ -1,0 +1,13 @@
+app:
+  name: item-activity-demo
+  key: item_activity_demo
+  version: '0.0.1'
+modules:
+  itemActivity:
+    - key: item-activity-demo-1
+      resource: main
+      title: Item Activity Demo
+      loadType: Micro
+resources:
+  - key: main
+    path: ./dist/
