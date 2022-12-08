@@ -1,0 +1,13 @@
+app:
+  name: item-panel-demo
+  key: item_panel_demo
+  version: '0.0.1'
+modules:
+  itemPanel:
+    - key: item-panel-demo-1
+      resource: main
+      title: Item Panel Demo
+      loadType: Micro
+resources:
+  - key: main
+    path: ./dist/
