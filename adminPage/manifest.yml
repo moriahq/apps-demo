@@ -1,0 +1,13 @@
+app:
+  name: admin-page-apps-demo
+  key: admin_page_apps_demo
+  version: '0.0.1'
+modules:
+  adminPage:
+    - key: admin-page-apps-demo-1
+      resource: main
+      title: Admin Demo Test
+      loadType: Micro
+resources:
+  - key: main
+    path: ./dist/
