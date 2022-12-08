@@ -1,0 +1,20 @@
+app:
+  name: trigger-demo
+  key: trigger_demo
+  version: "0.0.1"
+modules:
+  trigger:
+    - key: install-upgrade-trigger-key
+      events:
+        - proxima:app:install
+        - proxima:app:upgrade
+      function: install-function
+    - key: uninstall-trigger-key
+      events:
+        - proxima:app:uninstall
+      function: uninstall-function
+  function:
+    - key: install-function
+      handler: index.runInstall
+    - key: uninstall-function
+      handler: index.runUnInstall
