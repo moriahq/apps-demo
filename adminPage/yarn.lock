@@ -1086,13 +1086,6 @@
   resolved "https://registry.npmjs.org/@giteeteam/plugin-sdk/-/plugin-sdk-0.2.9.tgz#be57f79cbc9ca78abd7facac42ebb8c782bc94f8"
   integrity sha512-T5naXGm0j4Yuv2P35Q0HZbfk6N/+nlkkrPpQ7tr+vZPHhKl37k9QgdNfVDqnhAO7ZtclQWwDyJpmIiM9HoAzMA==
 
-"@giteeteam/proxima-sdk-js@^0.4.6":
-  version "0.4.6"
-  resolved "https://registry.npmjs.org/@giteeteam/proxima-sdk-js/-/proxima-sdk-js-0.4.6.tgz#7054ce84c0dd975ae5632bad79776b3ec03971f7"
-  integrity sha512-G7tHnRKmSpFWLjzDBl5OwytfT5y21u63ZiKI+I7IYvZpuOnIGWh7sNNp2qATtSM8UeAiW6VnlZnohmrlf3y3fQ==
-  dependencies:
-    react "^17.0.2"
-
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.npmmirror.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
