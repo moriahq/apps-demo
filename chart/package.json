@@ -51,7 +51,6 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@projectproxima/proxima-sdk-js": "^0.4.4",
     "antd": "^4.16.13",
     "echarts": "^5.2.2",
     "eslint": "^8.23.1",
