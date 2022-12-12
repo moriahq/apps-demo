@@ -1,0 +1,55 @@
+app:
+  name: bridge-demo
+  key: bridge_demo
+  version: '0.0.11'
+modules:
+  adminPage:
+#    - key: micro-adminPage-1
+#      resource: main
+#      title: bridge-demo
+#      loadType: Micro
+#      route: /sendAction
+    - key: micro-sdkjs
+      resource: main
+      title: sdkjs-demo
+      loadType: Micro
+      route: /sdkjs
+    - key: micro-adminPage-context
+      resource: main
+      title: bridge-demo-context
+      loadType: Micro
+      route: /sdkInfo
+  # itemPanel:
+  #   - key: micro-itemPanel-1
+  #     resource: main
+  #     title: 卡片面板微应用
+  #     loadType: Micro
+  #     route: /demo1
+  # itemActivity:
+  #   - key: micro-itemActivity-1
+  #     resource: main
+  #     title: 卡片活动微应用
+  #     loadType: Micro
+  #     route: /demo2
+  # adminPage:
+  #   - key: micro-adminPage-1
+  #     resource: main
+  #     title: 管理微前端
+  #     loadType: Micro
+  #     route: /demo3
+  # appPage:
+  #   - key: micro-appPage-1
+  #     resource: main
+  #     title: 应用微前端
+  #     loadType: Micro
+  #     route: /demo4
+  # workspacePage:
+  #   - key: micro-workspacePage-1
+  #     resource: main
+  #     title: 空间微前端
+  #     loadType: Micro
+  #     route: /demo5
+
+resources:
+  - key: main
+    path: ./dist/
