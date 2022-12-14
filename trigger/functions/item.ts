@@ -6,7 +6,7 @@ export const runBeforeDelete = async () => {
   return {};
 };
 
-export const runCreated = async () => {
+export const runSaved = async () => {
   const { item } = global;
   if (item?.key === "TEST") {
     // do something
