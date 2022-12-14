@@ -9,19 +9,33 @@ import {
 } from "../lib/global";
 import { ViewProps } from "../lib/type";
 
-const xAxisData = ["item1", "item2", "item3"];
-const seriesValue = [
-  {
-    name: "count",
-    type: "bar",
-    data: [3, 6, 10],
-  },
-];
+const generateData = (count: number) => {
+  const data = [];
+  const xAxisData = [];
+  for (let i = 1; i <= count; ++i) {
+    xAxisData.push(`item${i}`);
+    data.push(Math.abs(Math.floor(2 * (count / 2 - i))));
+  }
+  return [data, xAxisData];
+};
 
 const View: React.FC<ViewProps> = ({ random, option, isListView }) => {
   const id = random ? random : "basic-bar-chart";
+
   const echartData = useMemo(() => {
-    const legend = ["count"];
+    const legend = ["num"];
+
+    const barMaxWidth = option.barMaxWidth || 40;
+    const [data, xAxisData] = generateData(option.dataCount || 3);
+
+    const seriesValue = [
+      {
+        name: "num",
+        type: "bar",
+        data,
+      },
+    ];
+
     const xyData = {
       xAxis: {
         data: xAxisData,
@@ -30,7 +44,7 @@ const View: React.FC<ViewProps> = ({ random, option, isListView }) => {
       yAxis: {},
       color: CHART_BASIC_COLOR,
       series: seriesValue,
-      barMaxWidth: 40,
+      barMaxWidth,
       legend: {
         data: legend,
         show: !isListView,
@@ -54,7 +68,7 @@ const View: React.FC<ViewProps> = ({ random, option, isListView }) => {
       ...xyData,
       ...GLOBAL_CHART_TOOLTIP,
     };
-  }, []);
+  }, [option]);
 
   return (
     <CommonView
