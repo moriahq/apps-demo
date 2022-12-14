@@ -6,15 +6,33 @@ modules:
   trigger:
     - key: install-upgrade-trigger-key
       events:
-        - proxima:app:install
-        - proxima:app:upgrade
+        - gei:apps:installed:app
+        - gei:apps:upgraded:app
       function: install-function
     - key: uninstall-trigger-key
       events:
-        - proxima:app:uninstall
+        - gei:apps:uninstalled:app
       function: uninstall-function
+    - key: item-before-delete
+      events:
+        - gei:proxima:item:beforeDelete
+      function: item-before-delete-function
+    - key: item-created
+      events:
+        - gei:proxima:item:created
+      function: item-created-function
+    - key: itemType-found
+      events:
+        - gei:proxima:itemType:found
+      function: itemType-found-function
   function:
     - key: install-function
       handler: index.runInstall
     - key: uninstall-function
       handler: index.runUnInstall
+    - key: item-before-delete-function
+      handler: item.runBeforeDelete
+    - key: item-created-function
+      handler: item.runCreated
+    - key: itemType-found-function
+      handler: itemType.runFound
