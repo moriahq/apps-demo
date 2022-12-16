@@ -67,7 +67,7 @@
     "webpackbar": "^5.0.0-3"
   },
   "dependencies": {
-    "@projectproxima/proxima-sdk-js": "^0.4.6",
+    "@giteeteam/proxima-sdk-js": "^0.4.6",
     "@giteeteam/plugin-sdk": "^0.2.9",
     "antd": "^4.16.13",
     "axios": "^0.21.4",

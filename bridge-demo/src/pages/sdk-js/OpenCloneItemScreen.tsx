@@ -1,6 +1,6 @@
 import { Input, Button, Col, Row } from 'antd';
 
-import createProximaSdk from '@projectproxima/proxima-sdk-js';
+import createProximaSdk from '@giteeteam/proxima-sdk-js';
 import React, { useState } from 'react';
 
 const OpenCloneItemScreen: React.FC<any> = () => {

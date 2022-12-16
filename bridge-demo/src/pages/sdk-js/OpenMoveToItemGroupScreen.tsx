@@ -1,7 +1,7 @@
 import { Input, Button, Row, Col } from 'antd';
 import Parse from '@/lib/parse';
 
-import createProximaSdk from '@projectproxima/proxima-sdk-js';
+import createProximaSdk from '@giteeteam/proxima-sdk-js';
 import React, { useState } from 'react';
 
 const OpenMoveToItemGroupScreen: React.FC<any> = () => {
