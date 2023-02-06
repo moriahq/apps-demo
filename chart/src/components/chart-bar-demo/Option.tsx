@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Select } from "antd";
+import { Select, ConfigProvider } from "antd";
 
 import type { OptionsProps } from "../lib/type";
 
@@ -42,30 +42,32 @@ const Option: React.FC<OptionsProps> = ({ setSearchOption, option }) => {
   };
 
   return (
-    <div>
+    <ConfigProvider prefixCls="chart-basic">
       <div>
-        <div>barMaxWidth:</div>
         <div>
-          <Select
-            options={barMaxWidthOptions}
-            onChange={(val) => handleChangeOptions("barMaxWidth", val)}
-            defaultValue={option.barMaxWidth || 40}
-            style={{ width: "100%", margin: "4px 0" }}
-          />
+          <div>barMaxWidth:</div>
+          <div>
+            <Select
+              options={barMaxWidthOptions}
+              onChange={(val) => handleChangeOptions("barMaxWidth", val)}
+              defaultValue={option.barMaxWidth || 40}
+              style={{ width: "100%", margin: "4px 0" }}
+            />
+          </div>
+        </div>
+        <div style={{ margin: "16px 0" }}>
+          <div>dataCount:</div>
+          <div>
+            <Select
+              options={dataCountOptions}
+              onChange={(val) => handleChangeOptions("dataCount", val)}
+              defaultValue={option.dataCount || 3}
+              style={{ width: "100%", margin: "4px 0" }}
+            />
+          </div>
         </div>
       </div>
-      <div style={{ margin: "16px 0" }}>
-        <div>dataCount:</div>
-        <div>
-          <Select
-            options={dataCountOptions}
-            onChange={(val) => handleChangeOptions("dataCount", val)}
-            defaultValue={option.dataCount || 3}
-            style={{ width: "100%", margin: "4px 0" }}
-          />
-        </div>
-      </div>
-    </div>
+    </ConfigProvider>
   );
 };
 

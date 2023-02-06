@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { ConfigProvider } from "antd";
 
 import CommonView from "../common/CommonView";
 import {
@@ -71,12 +72,14 @@ const View: React.FC<ViewProps> = ({ random, option, isListView }) => {
   }, [option]);
 
   return (
-    <CommonView
-      echartData={echartData}
-      id={id}
-      option={option}
-      isListView={isListView}
-    />
+    <ConfigProvider prefixCls="chart-basic">
+      <CommonView
+        echartData={echartData}
+        id={id}
+        option={option}
+        isListView={isListView}
+      />
+    </ConfigProvider>
   );
 };
 

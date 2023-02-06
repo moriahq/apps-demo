@@ -1,13 +1,12 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const LessPluginFunctions = require("less-plugin-functions");
 const hasha = require("hasha");
 const autoprefixer = require("autoprefixer");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WebpackBar = require("webpackbar");
 
 const distOutputPath = "dist";
-const appPerfix = "chart-basic";
+const appPrefix = "chart-basic";
 
 // output配置
 const outputConfig = (isProd) =>
@@ -26,7 +25,7 @@ const outputConfig = (isProd) =>
       };
 
 const getLocalIdent = ({ resourcePath }, localIdentName, localName) => {
-  if (localName === appPerfix) {
+  if (localName === appPrefix) {
     return localName;
   }
   if (
@@ -68,6 +67,18 @@ module.exports = (cliEnv = {}, argv) => {
     options: {
       modules: { getLocalIdent },
       importLoaders: 1,
+    },
+  };
+
+  const lessLoaderConfig = {
+    loader: "less-loader",
+    options: {
+      lessOptions: {
+        javascriptEnabled: true,
+        modifyVars: {
+          "ant-prefix": appPrefix,
+        },
+      },
     },
   };
 
@@ -113,24 +124,13 @@ module.exports = (cliEnv = {}, argv) => {
       rules: [
         {
           test: /\.tsx?$/,
-          use: "ts-loader",
+          use: ["babel-loader", "ts-loader"],
           exclude: /node_modules/,
         },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"],
-              plugins: [
-                [
-                  "import",
-                  { libraryName: "antd", libraryDirectory: "es", style: true },
-                ],
-              ],
-            },
-          },
+          use: "babel-loader",
         },
         {
           test: /\.css/,
@@ -143,24 +143,19 @@ module.exports = (cliEnv = {}, argv) => {
         },
         {
           test: /\.less$/,
+          exclude: /node_modules/,
           use: [
             classNamesConfig,
             extractOrStyleLoaderConfig,
             cssLoaderConfig,
             postcssLoaderConfig,
-            {
-              loader: "less-loader",
-              options: {
-                lessOptions: {
-                  javascriptEnabled: true,
-                  modifyVars: {
-                    "@ant-prefix": "chart-basic",
-                  },
-                  plugins: [new LessPluginFunctions({ alwaysOverride: true })],
-                },
-              },
-            },
+            lessLoaderConfig,
           ],
+        },
+        {
+          test: /\.less$/,
+          include: /node_modules/,
+          use: [extractOrStyleLoaderConfig, "css-loader", lessLoaderConfig],
         },
         // 静态资源
         {
