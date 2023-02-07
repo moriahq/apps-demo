@@ -1,6 +1,5 @@
 import React, { CSSProperties, useEffect, useMemo, useRef } from "react";
 import { ECharts, init } from "echarts";
-import { NoData } from "proxima-sdk/components/Components/Chart";
 
 import { CommonViewProp } from "../lib/type";
 
@@ -39,10 +38,7 @@ const CommonView: React.FC<CommonViewProp> = (props) => {
   return (
     <>
       {!isLoading && isNoData ? (
-        <NoData
-          title="No data, please modify the chart data configuration"
-          isListView={isListView}
-        />
+        <div>No data, please modify the chart data configuration</div>
       ) : null}
       <div
         id={id}
