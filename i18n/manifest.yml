@@ -1,12 +1,12 @@
 app:
-  name: workspace-page-demo
-  key: workspace_page_demo
+  name: i18n-demo
+  key: i18n_demo
   version: '0.0.1'
 modules:
   workspacePage:
     - key: workspace-page-demo-1
       resource: main
-      title: Workspace Demo
+      title: workspacePage.title
       loadType: Micro
   webtrigger:
     - key: webtrigger-key-1

@@ -1,3 +1,6 @@
 {
-  "opensource": "opensource3333"
+  "opensource": "opensource",
+  "workspacePage": {
+    "title": "workspacePage demo"
+  }
 }

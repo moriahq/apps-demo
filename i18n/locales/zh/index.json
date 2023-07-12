@@ -1,3 +1,6 @@
 {
-  "opensource": "开源"
+  "opensource": "开源",
+  "workspacePage": {
+    "title": "空间页demo"
+  }
 }
