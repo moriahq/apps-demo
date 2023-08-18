@@ -7,7 +7,10 @@
     "build": "webpack --mode=production",
     "dev": "webpack-dev-server --mode=development",
     "build-package": "giteeteam-apps build --prod -o build",
-    "build-app": "yarn build && yarn build-package"
+    "build-app": "yarn build && yarn build-package",
+    "login-app": "giteeteam-apps login",
+    "deploy": "giteeteam-apps deploy",
+    "tunnel": "giteeteam-apps tunnel -i functions -c locales"
   },
   "repository": {
     "type": "git"
@@ -19,7 +22,7 @@
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "@ecomfe/class-names-loader": "^2.0.0",
-    "@giteeteam/apps-cli": "^0.2.10",
+    "@giteeteam/apps-cli": "^0.5.5",
     "@svgr/webpack": "^5.5.0",
     "@types/echarts": "^4.9.16",
     "@types/eslint": "^7.28.0",
