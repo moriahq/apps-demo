@@ -2,6 +2,8 @@
 
 - adminPage
 - chart
+- i18n
+- invoke
 - itemActivity
 - itemPanel
 - trigger
