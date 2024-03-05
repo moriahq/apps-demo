@@ -9,7 +9,10 @@
     "start": "webpack server --mode=development",
     "build-package": "giteeteam-apps build -o build",
     "build-app": "yarn build && yarn build-package",
-    "lint": "eslint src --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "login-app": "giteeteam-apps login",
+    "deploy": "giteeteam-apps deploy",
+    "tunnel": "giteeteam-apps tunnel"
   },
   "repository": {
     "type": "git"
@@ -22,7 +25,7 @@
     "@babel/preset-react": "^7.14.5",
     "@ecomfe/class-names-loader": "^2.0.0",
     "@ecomfe/eslint-config": "^7.3.0",
-    "@giteeteam/apps-cli": "^0.2.11",
+    "@giteeteam/apps-cli": "^0.6.3",
     "@types/eslint": "^7.28.0",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",

@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "build-app": "giteeteam-apps build --prod -i functions -o build",
-    "lint": "eslint src --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "login-app": "giteeteam-apps login",
+    "deploy": "giteeteam-apps deploy",
+    "tunnel": "giteeteam-apps tunnel -i functions"
   },
   "repository": {
     "type": "git"
@@ -13,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@giteeteam/apps-cli": "^0.2.11",
+    "@giteeteam/apps-cli": "^0.6.3",
     "@types/node": "^18.11.15",
     "typescript": "^4.9.4"
   }

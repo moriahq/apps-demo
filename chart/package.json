@@ -22,7 +22,7 @@
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "@ecomfe/class-names-loader": "^2.0.0",
-    "@giteeteam/apps-cli": "^0.5.5",
+    "@giteeteam/apps-cli": "^0.6.3",
     "@svgr/webpack": "^5.5.0",
     "@types/echarts": "^4.9.16",
     "@types/eslint": "^7.28.0",
