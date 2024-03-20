@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const distOutputPath = 'dist';
-const appKey = 'test_app';
+const appKey = 'item-panel-demo';
 
 const getExternalsObjectPath = () => moduleName => ['window modules', moduleName];
 
@@ -157,7 +157,6 @@ module.exports = (_client, argv) => {
               loader: 'babel-loader',
               options: {
                 presets: ['@babel/preset-env', '@babel/preset-react'],
-                plugins: [['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }]],
               },
             },
             'ts-loader',

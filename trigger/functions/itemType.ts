@@ -1,5 +1,10 @@
-export const runFound = async () => {
-  const { itemTypes } = global;
+interface Payload {
+  // Define payload here
+  itemTypes?: Record<string, any>[];
+}
+
+export const runFound = async ({ payload }: { payload: Payload }) => {
+  const { itemTypes } = payload;
 
   // do something
 
