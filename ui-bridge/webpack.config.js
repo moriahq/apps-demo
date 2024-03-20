@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LessPluginFunctions = require('less-plugin-functions');
@@ -13,7 +14,7 @@ const { getCommonExternals, getExtraExternals } = require('./externals');
 const smp = new SpeedMeasurePlugin();
 
 const distOutputPath = 'dist';
-const appPerfix = '{{appName}}';
+const appKey = 'bridge-demo';
 
 // output配置
 const outputConfig = isProd =>
@@ -22,19 +23,19 @@ const outputConfig = isProd =>
         filename: 'js/[name].[chunkhash].min.js',
         path: path.resolve(__dirname, distOutputPath),
         publicPath: './',
-        library: appPerfix,
+        library: appKey,
         libraryTarget: 'umd',
       }
     : {
         filename: 'main.js',
         path: path.resolve(__dirname, distOutputPath),
         publicPath: '/',
-        library: appPerfix,
+        library: appKey,
         libraryTarget: 'umd',
       };
 
 const getLocalIdent = ({ resourcePath }, localIdentName, localName) => {
-  if (localName === appPerfix) {
+  if (localName === appKey) {
     return localName;
   }
   if (/\.global\.(css|less)$/.test(resourcePath) || /node_modules/.test(resourcePath)) {
@@ -87,7 +88,7 @@ module.exports = (cliEnv = {}, argv) => {
       postcssOptions: {
         plugins: [
           namespacePefixer({
-            namespace: `#${appPerfix}`,
+            namespace: `#${appKey}`,
           }),
           autoprefixer,
         ],
@@ -135,6 +136,10 @@ module.exports = (cliEnv = {}, argv) => {
       },
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env': JSON.stringify(process.env),
+        'process.env.appKey': JSON.stringify(appKey),
+      }),
       new WebpackBar(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public/index.html'),

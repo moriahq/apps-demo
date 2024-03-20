@@ -1,13 +1,12 @@
 import React, { useEffect, Suspense, useMemo } from 'react';
-import { MemoryRouter, Switch, Route, useHistory } from 'react-router-dom';
+import { MemoryRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { ConfigProvider, message } from 'antd';
 import { PluginSDKContext } from '@giteeteam/plugin-sdk';
 
 const rootElement = 'bridge-demo';
 
 message.config({
-  getContainer: () =>
-    document.getElementById('osc-proxima') || document.getElementById(rootElement),
+  getContainer: () => document.getElementById(rootElement),
 });
 
 import routes from './routes';
@@ -20,14 +19,23 @@ interface QiankunContextProps {
 
 export const QiankunContext = React.createContext({} as QiankunContextProps);
 
+const AppComponent = ({ component }) => {
+  const Component = component;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Component />
+    </Suspense>
+  );
+};
+
 const GoPropsRoute = props => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.info('子应用接收route:', props?.route);
     // 跳转渲染指定的路由
     if (props?.route) {
-      history.push(props?.route);
+      navigate(props?.route);
     }
   }, []);
 
@@ -44,16 +52,17 @@ const App: React.FC = props => {
 
   return (
     <PluginSDKContext.Provider value={qiankunContextValue.sdk}>
-      <ConfigProvider getPopupContainer={() => document.getElementById(rootElement)}>
+      <ConfigProvider
+        prefixCls={process.env.appKey}
+        getPopupContainer={() => document.getElementById(rootElement)}
+      >
         <MemoryRouter>
           <GoPropsRoute {...props} />
-          <Switch>
-            <Suspense fallback={<div>Loading...</div>}>
-              {routes.map(({ path, component, exact }) => (
-                <Route path={path} component={component} exact={exact} key={path} />
-              ))}
-            </Suspense>
-          </Switch>
+          <Routes>
+            {routes.map(({ path, component }) => (
+              <Route path={path} element={<AppComponent component={component} />} key={path} />
+            ))}
+          </Routes>
         </MemoryRouter>
       </ConfigProvider>
     </PluginSDKContext.Provider>
