@@ -23,11 +23,6 @@ modules:
         - gei:proxima:item:created
         - gei:proxima:item:updated
       function: item-saved-function
-    - key: itemType-found
-      events:
-        - gei:proxima:itemType:found
-      function: itemType-found-function
-      async: false
   function:
     - key: install-function
       handler: index.runInstall
@@ -37,5 +32,3 @@ modules:
       handler: item.runBeforeDelete
     - key: item-saved-function
       handler: item.runSaved
-    - key: itemType-found-function
-      handler: itemType.runFound
