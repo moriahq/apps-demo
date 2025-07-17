@@ -1,0 +1,23 @@
+app:
+  name: 自定义字段字段demo插件
+  key: plugin_custom_field_demo
+  version: "1.0.0"
+modules:
+  proxima:FieldType:
+    - key: custom_field_type_1
+      name: 自定义字段类型demo
+      type: Custom
+      dataType: array
+      resource: custom-field-type
+      defaultKey: custom_field_type_1
+      description: 自定义字段类型demo
+  proxima:CustomField:
+    - key: custom_field_1
+      name: 自定义字段demo
+      fieldType: custom_field_type_1
+      description: 自定义字段demo
+      undeletable: true
+      locked: true
+resources:
+  - key: custom-field-type
+    path: ./field_dist/custom-field

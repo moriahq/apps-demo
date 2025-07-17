@@ -1,0 +1,23 @@
+# npm
+node_modules
+
+# misc
+.DS_Store
+
+# production
+dist
+build
+*.zip
+./release
+
+# debug log
+*.log
+
+# .idea
+.idea
+.vscode
+
+.env
+
+field_dist
+package

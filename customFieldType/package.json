@@ -1,0 +1,42 @@
+{
+  "name": "plugin-custom-field",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-field": "cross-env NODE_ENV=production node build.js",
+    "build-package": "giteeteam-apps build --prod",
+    "build-app": "yarn build-field && yarn build-package"
+  },
+  "dependencies": {
+    "@giteeteam/plugin-sdk": "^0.9.3",
+    "antd": "5.20.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@giteeteam/apps-cli": "^0.8.15",
+    "@svgr/webpack": "^8.1.0",
+    "@swc/core": "^1.7.26",
+    "@types/lodash": "^4.14.186",
+    "@types/node": "^18.11.2",
+    "@types/react": "18.2.79",
+    "autoprefixer": "^10.3.4",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "core-js": "^3.38.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.2.0",
+    "dotenv": "^16.4.5",
+    "html-webpack-plugin": "^5.6.3",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
+    "less-plugin-functions": "^1.0.0",
+    "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
+    "style-loader": "^3.2.1",
+    "swc-loader": "^0.2.6",
+    "webpack": "^5.52.1"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
